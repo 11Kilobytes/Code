@@ -30,6 +30,7 @@ static const int UNLATCH_POS = 180;
 static const int ARM_UP_ANGLE = 180;
 static const int ARM_DOWN_ANGLE = 0;
 
+static const float SCALE_FACTOR = 40.0 / 127;
 void initializeRobot()
 {
 	nMotorEncoder[armMotor] = 0; // Resets position of armMotor encoder to zero before any commands
@@ -63,5 +64,9 @@ task main()
   		}
   		motor[intakeMotor] = INTAKE_MOTOR_SPEED;
   	}
+  	int xVal = joystick.joy1_x2
+  	int yVal = joystick.joy1_y2
+  	motor[leftMotor] = (xVal + yVal) * SCALE_FACTOR
+  	motor[rightMotor] = (xVal - yVal) * SCALE_FACTOR
   }
 }
