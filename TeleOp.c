@@ -56,10 +56,8 @@ task main()
   		while (nMotorEncoder[armMotor] < ARM_UP_ANGLE) {
   			motor[armMotor] = ARM_MOTOR_SPEED;
   		}
-  		motor[intakeMotor] = INTAKE_MOTOR_SPEED;
   	}
   	else if (joy1Btn(LOWER_ARM_BTN) == 1) {
-  		motor[intakeMotor] = 0;
   		while (nMotorEncoder[armMotor] > ARM_DOWN_ANGLE) {
   			motor[armMotor] = -ARM_MOTOR_SPEED;
   		}
